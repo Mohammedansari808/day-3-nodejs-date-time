@@ -12,8 +12,14 @@ const app = express();
 
 const PORT = (process.env.PORT);
 app.get("/", function (request, response) {
-    response.send(fs.writeFile(`./textstorage/${date.getDate()}-${date.getMonth()}-${date.getFullYear()} Time ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`, dates, (err) => { console.log("Current time and date txt file created") })
+    response.send((fs.writeFile(`./textstorage/${date.getDate()}-${date.getMonth()}-${date.getFullYear()} Time ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`, dates, (err) => {
+        console.log("Current time and date txt file created")
+    }))
     );
 });
+
+
+
+
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
