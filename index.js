@@ -1,6 +1,7 @@
 const fs = require("fs");
 const date = new Date();
 const dates = `Current date and time ${date}`
+require('dotenv').config()
 
 
 fs.writeFile(`./textstorage/${date.getDate()}-${date.getMonth()}-${date.getFullYear()} Time ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`, dates, (err) => { console.log("Completed") })
@@ -9,7 +10,7 @@ fs.writeFile(`./textstorage/${date.getDate()}-${date.getMonth()}-${date.getFullY
 const express = require("express");
 const app = express();
 
-const PORT = 4000;
+const PORT = (process.env.PORT);
 app.get("/", function (request, response) {
     response.send(fs.writeFile(`./textstorage/${date.getDate()}-${date.getMonth()}-${date.getFullYear()} Time ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`, dates, (err) => { console.log("Current time and date txt file created") })
     );
